@@ -1,9 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
 from django.template import loader
+from django.shortcuts import redirect, render
 from .models import Pokemon
-
-#from .models import Trainer#
+from pokedex.forms import PokemonForm
 
 def index(request):
     pokemons = Pokemon.objects.order_by('type')
@@ -26,13 +25,6 @@ def add_pokemon(request):
             return redirect('pokedex:index')
     else:
         form = PokemonForm()
-        
-    return render(request, 'add_pokemon.html', {'form':form})
-
-#def trainer(request, trainer_id):
- #   trainer = Trainer.objects.get (pk = trainer_id)
-   # template = loader.get_template('display_trainer.html')
-    #context = {
-     #   'trainer': trainer
-    #}
-    #return HttpResponse(template.render(context, request))#
+    
+    return render(request, 'add_pokemon.html', {'form': form})
+    
