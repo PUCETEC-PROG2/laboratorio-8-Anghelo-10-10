@@ -14,7 +14,7 @@
         <div class="card-group">
             {% for pokemon in pokemons %}
                 <div class="card">
-                    <img src="{pokemon.picture.url}" alt="">
+                    <img src="{{ pokemon.picture.url }}" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ pokemon }}</h5>
                         <p class="card-text">Entrenador: {{ pokemon.trainer }}</p>
