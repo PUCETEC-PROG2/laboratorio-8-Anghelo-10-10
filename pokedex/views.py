@@ -36,7 +36,7 @@ class CustomLoginView(LoginView):
     
 @login_required
 def edit_pokemon(request, id):
-    pokemon = get_object_or_404(pokemon, pk = id)
+    pokemon = get_object_or_404(Pokemon, pk = id)
     if request.method == 'POST':
         form = PokemonForm(request.POST, request.FILES, instance = pokemon)
         if form.is_valid():

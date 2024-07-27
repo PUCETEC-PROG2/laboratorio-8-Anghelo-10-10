@@ -79,8 +79,8 @@ DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql',
           'NAME': 'pokedex_anghelo',
-          'USER': 'postgres',
-          'PASSWORD': 'pucetec',
+          'USER': 'anghelo',
+          'PASSWORD': 'password',
           'HOST': 'localhost',
           'PORT': '5432',
       }
@@ -135,5 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Configuraciones de autenticación
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = 'pokedex:url'
+LOGIN_URL = 'pokedex:login'
 

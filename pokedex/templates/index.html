@@ -20,8 +20,8 @@
                         <p class="card-text">Entrenador: {{ pokemon.trainer }}</p>
                         <p class="card-text">Peso: {{ pokemon.weight }}</p>
                         <a href="pokemon/{{ pokemon.id }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                        <a href="pokemon/edit{{ pokemon.id }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                        <a href="pokemon/delete{{ pokemon.id }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="pokemon/edit/{{ pokemon.id }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="pokemon/delete/{{ pokemon.id }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             {% endfor %}
