@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Pokedex{% endblock title %}
 {% block content %}
-    <p class="p-2">Hola, este es tu primer sitio en Django</p>
-    <a href="{% url "pokedex:add_pokemon" %}"> Crear Pokemon</a>
+    {% comment %} <p class="p-2">Hola, este es tu primer sitio en Django</p>
+    <a href="{% url "pokedex:add_pokemon" %}"> Crear Pokemon</a> {% endcomment %}
         {% comment %} <ul class="list-group">
             {% for pokemon in pokemons %}
             <li class="list-group-item">
@@ -14,14 +14,22 @@
         <div class="card-group">
             {% for pokemon in pokemons %}
                 <div class="card">
-                    <img src="{{ pokemon.picture.url }}" alt="">
+                    <img src="{{ pokemon.picture.url }}" alt="" style="height:210px; object-fit: scale-down;">
                     <div class="card-body">
                         <h5 class="card-title">{{ pokemon }}</h5>
                         <p class="card-text">Entrenador: {{ pokemon.trainer }}</p>
                         <p class="card-text">Peso: {{ pokemon.weight }}</p>
-                        <a href="pokemon/{{ pokemon.id }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                        <a href="pokemon/edit/{{ pokemon.id }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                        <a href="pokemon/delete/{{ pokemon.id }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="pokemon/{{ pokemon.id }}" class="btn btn-primary">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        {% if user.is_authenticated %} 
+                            <a href="edit_pokemon/{{ pokemon.id }}" class="btn btn-primary">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <a href="delete_pokemon/{{ pokemon.id }}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
